@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: logar docker hub
+      run: docker login -u $DOCKER_HUB_USER -p $DOCKER_HUB_PASS
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
